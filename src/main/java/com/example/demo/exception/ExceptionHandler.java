@@ -34,5 +34,10 @@ public class ExceptionHandler {
 		ErrorDetails errorDetails=new ErrorDetails(new Date(),invalidAdminException.getMessage(),webRequest.getDescription(false));
 		return new ResponseEntity<>(errorDetails,HttpStatus.NOT_ACCEPTABLE);
 	}
+	
+	public ResponseEntity<?> handleUserIdException(UserIdException userIdException,WebRequest webRequest){
+		ErrorDetails errorDetails=new ErrorDetails(new Date(),userIdException.getMessage(),webRequest.getDescription(false));
+		return new ResponseEntity<>(errorDetails,HttpStatus.NOT_FOUND);
+	}
 
 }
